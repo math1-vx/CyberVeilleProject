@@ -21,7 +21,8 @@ CyberVeilleProject est un projet **en cours de développement**, d'un site web d
 
 
 ## 📅 Roadmap 
-- 🔄 Planification du projet (cahier des charges, Gantt…) 
+- 🔄 Planification du projet (cahier des charges, Gantt…)
+- 🔄 Conception de la base de donnée (nosql)
 - 🔄 Développement du backend (auth, API, scraping) 
 - 🔄 Développement du frontend (UI, affichage des news) 
 - 🔄 Mise en place des notifications et abonnements 
