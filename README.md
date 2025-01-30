@@ -49,7 +49,7 @@ Ce projet est développé en solo par [moi](https://github.com/math1-vx).
 ```
 #### frontend
 ```bash
- cd Backend
+ cd Frontend
  npm install
  npm start
 ```
