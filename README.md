@@ -1,6 +1,6 @@
 # 🚀 CyberVeilleProject 🔄 En Cours de développement 
 
-CyberVeilleProject est un projet **en cours de développement**, d'un site web dédié à la **veille technologique et stratégique** sur plusieurs domaines comme la **cybersécurité, l'intelligence artificielle, le business et plus encore**. Il permetera aux utilisateurs de suivre automatiquement les dernières actualités via **email, webhook ou API**.
+CyberVeilleProject est un projet **en cours de développement**, d'un site web dédié à la **veille technologique et stratégique** sur plusieurs domaines comme la **cybersécurité, l'intelligence artificielle, le business et plus encore**. Il permettra aux utilisateurs de suivre automatiquement les dernières actualités via **email, webhook ou API**.
 
 ## 🌟 Fonctionnalités Prévu 
 - 📌 **Collecte automatique d'informations** via scraping, RSS et APIs tierces
