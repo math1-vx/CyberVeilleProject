@@ -1,0 +1,298 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CyberVeilleProject API",
+    "version": "1.0.0",
+    "description": "API REST pour la veille technologique et stratégique."
+  },
+  "servers": [{ "url": "https://api.cyberveilleproject.com/v1" }],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Inscription d’un nouvel utilisateur",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Utilisateur inscrit avec succès" },
+          "400": { "description": "Erreur dans la requête" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Connexion utilisateur",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Connexion réussie, retourne un token JWT" },
+          "401": { "description": "Identifiants invalides" }
+        }
+      }
+    },
+    "/auth/me": {
+      "patch": {
+        "summary": "Mise à jour des infos utilisateur (email, préférences)",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Données de l'utilisateur" },
+          "401": { "description": "Non authentifié" }
+        }
+      }
+    },
+    "/auth/update-profile": {
+      "post": {
+        "summary": "Déconnexion",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Données de l'utilisateur" },
+          "401": { "description": "Non authentifié" }
+        }
+      }
+    },
+    "/auth/logout": {
+      "get": {
+        "summary": "Récupérer les informations de l'utilisateur connecté",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Données de l'utilisateur" },
+          "401": { "description": "Non authentifié" }
+        }
+      }
+    },
+    "/articles": {
+      "get": {
+        "summary": "Liste des articles avec filtres",
+        "parameters": [
+          { "name": "category", "in": "query", "schema": { "type": "string" } },
+          { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } }
+        ],
+        "responses": {
+          "200": { "description": "Liste des articles" }
+        }
+      },
+      "post": {
+        "summary": "Ajouter un nouvel article",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "201": { "description": "Article ajouté" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "/articles/:id": {
+      "get": {
+        "summary": "Récupérer un article spécifique",
+        "parameters": [
+          { "name": "category", "in": "query", "schema": { "type": "string" } },
+          { "name": "date", "in": "query", "schema": { "type": "string", "format": "date" } }
+        ],
+        "responses": {
+          "200": { "description": "L'article" },
+          "404": { "description": "Article introuvable" }
+        },
+        "patch": {
+          "summary": "Modifier un article",
+          "security": [{ "bearerAuth": [] }],
+          "responses": {
+            "201": { "description": "Article ajouté" },
+            "404": { "description": "Article introuvable" },
+            "403": { "description": "Accès interdit" }
+          }
+        },
+        "delete": {
+          "summary": "Supprimer un article",
+          "security": [{ "bearerAuth": [] }],
+          "responses": {
+            "201": { "description": "Article ajouté" },
+            "404": { "description": "Article introuvable" },
+            "403": { "description": "Accès interdit" }
+          }
+        }
+      },
+    "/articles/search": {
+        "get": {
+            "summary": "Recherche dans les articles (titre, contenu)",
+            "parameters": [
+                { "name": "keyword", "in": "query", "schema": { "type": "string" } }
+            ],
+            "responses": {
+                "200": { "description": "Liste des articles" }
+            }
+        }
+    },
+    "/articles/categories/:category": {
+        "get": {
+            "summary": "Récupérer les articles par catégorie",
+            "parameters": [
+                { "name": "category", "in": "query", "schema": { "type": "string" } }
+            ],
+            "responses": {
+                "200": { "description": "Liste des articles" }
+            }
+        }
+    },
+
+    "/subscriptions": {
+      "get": {
+        "summary": "Récupérer les abonnements de l'utilisateur",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Liste des abonnements" },
+          "401": { "description": "Non authentifié" }
+        }
+      },
+      "post": {
+        "summary": "S’abonner à une catégorie",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "201": { "description": "Abonnement ajouté" },
+          "400": { "description": "Mauvaise requête" }
+        }
+      }
+    },
+
+    "/subscriptions/:id": {
+      "delete": {
+        "summary": "Se désabonner d’une catégorie",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Confirmation désabonnement" },
+          "401": { "description": "Non authentifié" }
+        }
+      }
+    },
+    "/scraping/logs": {
+      "get": {
+        "summary": "Voir les logs du scraping",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Logs récupérés" }
+        }
+      }
+    },
+    
+    "/scraping/run": {
+        "post": {
+          "summary": "Lancer manuellement un scraping",
+          "security": [{ "bearerAuth": [] }],
+          "responses": {
+            "200": { "description": "Confirmation lancement" }
+          }
+        }
+      },
+    "/admin/users": {
+      "get": {
+        "summary": "Voir la liste des utilisateurs",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Liste des utilisateurs" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "/admin/users/:id": {
+      "patch": {
+        "summary": "Modifier un utilisateur (rôle, bannissement)",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Modification utilisateur" },
+          "403": { "description": "Accès interdit" },
+          "404": { "description": "Utilisateur introuvable"}
+        }
+      },
+      "delete": {
+        "summary": "Supprimer un compte utilisateur",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Suppression utilisateur" },
+          "403": { "description": "Accès interdit" },
+          "404": { "description": "Utilisateur introuvable"}
+        }
+      }
+    },
+    "/webhooks": {
+      "get": {
+        "summary": "Liste des webhooks enregistrés",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Liste des webhook" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "post": {
+        "summary": "Ajouter un webhook (Discord, Slack...)",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Ajout d'un webhook" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "/webhooks/:id": {
+      "delete": {
+        "summary": "Supprimer un webhook",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Supprimer un webhook" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "/api-key": {
+      "delete": {
+        "summary": "Récupérer la clé API pour accès aux données",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Récupérer la clé API pour accès aux données" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    },
+    "/api-key/regenerate": {
+      "delete": {
+        "summary": "Régénérer une nouvelle clé API",
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Régénérer une nouvelle clé API" },
+          "403": { "description": "Accès interdit" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

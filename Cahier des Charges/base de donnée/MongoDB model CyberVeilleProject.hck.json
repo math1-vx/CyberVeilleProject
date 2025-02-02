@@ -1,0 +1,1130 @@
+{
+  "modelName": "CyberVeilleProject",
+  "collections": [
+    {
+      "GUID": "1b28d1d8-7b53-41ff-806b-88a028234c03",
+      "collectionName": "users",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "b5b4bd9d-fe9d-44a0-8e05-39abf84be4d8",
+          "code": "user_id",
+          "primaryKey": true,
+          "required": true,
+          "error": {},
+          "childRelationships": [
+            "a362ce56-ca41-41ee-b36b-b50d91002dc7"
+          ]
+        },
+        {
+          "name": "email",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "6f5638de-0cc2-4633-b26f-16e744cb6002",
+          "code": "user_email",
+          "required": true,
+          "minLength": 5,
+          "error": {}
+        },
+        {
+          "name": "password",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "error": {},
+          "code": "user_password",
+          "required": true,
+          "GUID": "c255444f-d757-4f73-ac53-10553bf13cad"
+        },
+        {
+          "name": "role",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "error": {
+            "enum": false,
+            "enums": [
+              false,
+              false
+            ]
+          },
+          "code": "user_role",
+          "required": true,
+          "GUID": "2327b5a0-4150-4b9e-8d49-a6d629fffe8c",
+          "enum": [
+            "admin",
+            "user"
+          ]
+        },
+        {
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "document",
+          "properties": [
+            {
+              "name": "notifications",
+              "hackoladeMeta": {},
+              "isActivated": true,
+              "type": "document",
+              "properties": [
+                {
+                  "name": "email",
+                  "hackoladeMeta": {},
+                  "isActivated": true,
+                  "type": "boolean",
+                  "GUID": "6d05ee90-db0f-4787-821a-0039c95999d3",
+                  "error": {}
+                },
+                {
+                  "name": "webhook",
+                  "hackoladeMeta": {},
+                  "isActivated": true,
+                  "type": "string",
+                  "error": {},
+                  "GUID": "f9645b5e-805e-4e5e-9ff6-83ce5ab1b048"
+                },
+                {
+                  "name": "apiKey",
+                  "hackoladeMeta": {},
+                  "isActivated": true,
+                  "type": "string",
+                  "error": {},
+                  "GUID": "70f56dd2-f861-4b0f-83fb-033a4610c442"
+                }
+              ],
+              "additionalProperties": false,
+              "GUID": "3b1fd62d-e3ac-462b-ac24-e5deaaae442f",
+              "error": {
+                "name": false
+              },
+              "code": "user_preferences_notifications"
+            },
+            {
+              "name": "categories",
+              "hackoladeMeta": {},
+              "isActivated": true,
+              "type": "array",
+              "properties": [
+                {
+                  "hackoladeMeta": {},
+                  "isActivated": true,
+                  "type": "string",
+                  "GUID": "eff57b68-0fb5-48ae-aa12-0249cfd3351d",
+                  "arrayItem": true
+                }
+              ],
+              "additionalItems": true,
+              "GUID": "68073348-7273-4e53-aa04-19083119f1e7",
+              "error": {
+                "name": false,
+                "code": false
+              },
+              "code": "user_preferences_categories"
+            }
+          ],
+          "additionalProperties": false,
+          "GUID": "4873bd2c-0c14-48fc-883f-c1494649bdc6",
+          "name": "preferences",
+          "code": "user_preferences",
+          "required": true,
+          "error": {
+            "name": false
+          }
+        },
+        {
+          "name": "createdAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "6fd2acc8-17f8-4729-abf9-0f383dd90d20",
+          "required": true,
+          "error": {}
+        },
+        {
+          "name": "updatedAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "8652f753-2e8e-4417-ade0-76c656a7ed7a",
+          "required": false,
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "4dc74fac-baed-47d9-9966-cb02feb55e28"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [
+        {
+          "GUID": "29dede5e-e4b5-4a92-b30c-d5a77e7c7375",
+          "name": "email",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "6f5638de-0cc2-4633-b26f-16e744cb6002",
+              "type": "ascending"
+            }
+          ],
+          "unique": true,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        },
+        {
+          "GUID": "ac204072-ec06-4e85-8def-7e27616a69a0",
+          "name": "role",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "2327b5a0-4150-4b9e-8d49-a6d629fffe8c",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        }
+      ],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "error": {}
+    },
+    {
+      "GUID": "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+      "collectionName": "articles",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "ae7e906b-3f6e-40ba-a2e2-253c85aa4bb9",
+          "primaryKey": true,
+          "error": {},
+          "childRelationships": [
+            "25be94ea-4499-4f59-95d0-8d241f2a3e80"
+          ]
+        },
+        {
+          "name": "title",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "10564cb3-fe89-4b81-a608-43c3446a89c7",
+          "required": true,
+          "error": {}
+        },
+        {
+          "name": "source",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "91c95812-76ae-454e-9121-5e3e67c3aeba",
+          "required": true,
+          "error": {}
+        },
+        {
+          "name": "content",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "f5b32ae1-303a-4a55-a6f5-15ff35b6d589",
+          "error": {}
+        },
+        {
+          "name": "category",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "array",
+          "properties": [
+            {
+              "hackoladeMeta": {},
+              "isActivated": true,
+              "type": "string",
+              "GUID": "1468d773-328c-4533-bdcb-ec2ef235df5a",
+              "arrayItem": true
+            }
+          ],
+          "additionalItems": true,
+          "GUID": "bb0d7b3c-e291-4b25-af63-4d2c0a7f3b88",
+          "error": {}
+        },
+        {
+          "name": "tags",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "array",
+          "properties": [
+            {
+              "hackoladeMeta": {},
+              "isActivated": true,
+              "type": "string",
+              "GUID": "8dc4a81e-1d81-4472-8162-756996e56aa9",
+              "arrayItem": true
+            }
+          ],
+          "additionalItems": true,
+          "GUID": "a82cbc66-436f-4a1e-ae10-69fa4654011e",
+          "error": {}
+        },
+        {
+          "name": "publishedAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "f37adf9d-3f61-4f2c-aa7a-6cf3d9548971",
+          "error": {}
+        },
+        {
+          "name": "createdAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "fa343cc9-4d86-4433-826d-02dad32ac457",
+          "error": {}
+        },
+        {
+          "name": "moderate",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "boolean",
+          "GUID": "e1002c46-910a-4dae-9cac-08b71948ac2b",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "70d4b144-88b5-4ae9-8cca-12852d253585"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [
+        {
+          "GUID": "2290aefd-5760-434b-9f43-7f97a1a45ffc",
+          "name": "category",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "bb0d7b3c-e291-4b25-af63-4d2c0a7f3b88",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        },
+        {
+          "GUID": "5153a8f4-78e0-4be5-9db6-fc3aa56facda",
+          "name": "publishedAtcategory",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "bb0d7b3c-e291-4b25-af63-4d2c0a7f3b88",
+              "type": "ascending"
+            },
+            {
+              "keyId": "f37adf9d-3f61-4f2c-aa7a-6cf3d9548971",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        },
+        {
+          "GUID": "293d52fb-9be0-4585-b713-70523bc7bcd1",
+          "name": "titlecontent",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "10564cb3-fe89-4b81-a608-43c3446a89c7",
+              "type": "ascending"
+            },
+            {
+              "keyId": "f5b32ae1-303a-4a55-a6f5-15ff35b6d589",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        }
+      ],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "error": {}
+    },
+    {
+      "GUID": "c5e9ca6d-9c64-49af-85c9-09131d7b5483",
+      "collectionName": "subscriptions",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "37fda342-3a75-48c6-b36c-89a2d9ba4d7f",
+          "primaryKey": true,
+          "error": {}
+        },
+        {
+          "name": "userId",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "error": {},
+          "GUID": "017ce7f4-fd07-48f3-95a8-2b4d6d28a8b3",
+          "foreignCollection": "1b28d1d8-7b53-41ff-806b-88a028234c03",
+          "foreignField": [
+            "1b28d1d8-7b53-41ff-806b-88a028234c03",
+            "b5b4bd9d-fe9d-44a0-8e05-39abf84be4d8"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "a362ce56-ca41-41ee-b36b-b50d91002dc7"
+        },
+        {
+          "name": "category",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "8869432b-5da0-49b2-85cb-93a4f2f399b3",
+          "error": {}
+        },
+        {
+          "name": "New Field",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "ade96e38-8b17-4275-961d-891b4b88f438",
+          "error": {
+            "enum": false,
+            "enums": [
+              false,
+              false,
+              false
+            ]
+          },
+          "enum": [
+            "email",
+            "webhook",
+            "api"
+          ]
+        },
+        {
+          "name": "createdAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "9d14b449-c209-42e8-9afe-3f60a0976a24",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "001daa46-38b7-4d24-be77-66eccc7ac940"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [
+        {
+          "GUID": "a8e94074-e29e-4333-a227-90df17c08879",
+          "name": "userIdcategory",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "017ce7f4-fd07-48f3-95a8-2b4d6d28a8b3",
+              "type": "ascending"
+            },
+            {
+              "keyId": "8869432b-5da0-49b2-85cb-93a4f2f399b3",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        },
+        {
+          "GUID": "d852902f-3e36-4e74-9502-ed2b28514e10",
+          "name": "userId",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "017ce7f4-fd07-48f3-95a8-2b4d6d28a8b3",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        }
+      ],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "error": {}
+    },
+    {
+      "GUID": "ea7535bb-ebbf-446f-8a08-36e42281b60b",
+      "collectionName": "scraping_logs",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "e48a4f0e-ab29-4817-a905-af51b83da5a7",
+          "primaryKey": true,
+          "error": {}
+        },
+        {
+          "name": "source",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "ea692247-3619-422f-a497-765761c4cfee",
+          "error": {}
+        },
+        {
+          "name": "status",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "8fb4d979-b067-4c08-9b6b-b89051d22a76",
+          "error": {
+            "enum": false,
+            "enums": [
+              false,
+              false
+            ]
+          },
+          "enum": [
+            "success",
+            "failed"
+          ]
+        },
+        {
+          "name": "errorMessage",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "string",
+          "GUID": "fe60cb85-34c1-4807-b26d-f7b17c12b2ea",
+          "error": {}
+        },
+        {
+          "name": "scrapedAt",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "8779da70-be6c-4cc1-b50e-8400e201a427",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "ca7d63f3-5b38-4609-bb0f-410e4652c0cf"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [
+        {
+          "GUID": "3c3f9b8e-3232-4b1f-93a5-27a60f245c9b",
+          "name": "sourcescrapedat",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "ea692247-3619-422f-a497-765761c4cfee",
+              "type": "ascending"
+            },
+            {
+              "keyId": "8779da70-be6c-4cc1-b50e-8400e201a427",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        }
+      ],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "error": {}
+    },
+    {
+      "GUID": "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae",
+      "collectionName": "likes",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "b9a270f7-a657-4d43-bcb8-e7c186dcf1ad",
+          "primaryKey": true,
+          "error": {}
+        },
+        {
+          "name": "articleId",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "error": {},
+          "GUID": "61133162-b73f-472c-897e-65acc1e12f88",
+          "foreignCollection": "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+          "foreignField": [
+            "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+            "ae7e906b-3f6e-40ba-a2e2-253c85aa4bb9"
+          ],
+          "relationshipType": "Foreign Key",
+          "parentRelationship": "25be94ea-4499-4f59-95d0-8d241f2a3e80"
+        },
+        {
+          "name": "likes",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "numeric",
+          "GUID": "f6fb40f7-f6df-4439-a6e6-24bcc54181dd",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "fe02d7d6-6f45-4abc-b000-293d6634dde4"
+      },
+      "isActivated": true,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [
+        {
+          "GUID": "aa49b6df-13dc-40a0-87c6-82c62a973967",
+          "name": "articleid",
+          "isActivated": true,
+          "key": [
+            {
+              "keyId": "61133162-b73f-472c-897e-65acc1e12f88",
+              "type": "ascending"
+            }
+          ],
+          "unique": false,
+          "dropDups": false,
+          "sparse": false,
+          "expireAfterSeconds": "",
+          "background": false,
+          "weights": "",
+          "min": -180,
+          "max": 180,
+          "bits": 26,
+          "language_override": "language",
+          "storageEngineName": "WiredTiger",
+          "collation": {}
+        }
+      ],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "error": {}
+    },
+    {
+      "GUID": "c9cb57e9-54c3-4da5-ba18-1cab7635c413",
+      "collectionName": "likes_logs",
+      "type": "object",
+      "properties": [
+        {
+          "name": "_id",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "GUID": "00d68b0e-1efd-4fa3-b8ac-8876933c272a",
+          "primaryKey": true,
+          "error": {}
+        },
+        {
+          "name": "articleId",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "error": {},
+          "GUID": "0e63f64a-c1f5-44da-a74e-be32278eec78",
+          "foreignCollection": "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c"
+        },
+        {
+          "name": "userId",
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "objectId",
+          "error": {},
+          "GUID": "f13774ff-4f48-4941-9128-20a66df350e2"
+        },
+        {
+          "hackoladeMeta": {},
+          "isActivated": true,
+          "type": "date",
+          "primaryKey": false,
+          "GUID": "5eb2e0b3-4a3b-4680-9628-0e8cf74aa3d9",
+          "name": "likedAt",
+          "error": {}
+        }
+      ],
+      "definitions": {
+        "type": "definitions",
+        "properties": [],
+        "GUID": "5847ff86-dd8a-4d74-b8b9-38912f96026d"
+      },
+      "isActivated": false,
+      "additionalProperties": false,
+      "validationLevel": "Off",
+      "validationAction": "Warn",
+      "storageEngineName": "WiredTiger",
+      "collectionUsers": [],
+      "indexes": [],
+      "collation": {},
+      "sharding": {
+        "unique": true,
+        "collation": "null"
+      },
+      "bucketId": "a4178b43-ed5f-4e14-9de2-f46d11f1081c",
+      "hackoladeMeta": {}
+    }
+  ],
+  "buckets": [
+    {
+      "name": "CyberVeilleProject",
+      "type": "bucket",
+      "collectionIds": [
+        "1b28d1d8-7b53-41ff-806b-88a028234c03",
+        "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+        "c5e9ca6d-9c64-49af-85c9-09131d7b5483",
+        "ea7535bb-ebbf-446f-8a08-36e42281b60b",
+        "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae",
+        "c9cb57e9-54c3-4da5-ba18-1cab7635c413"
+      ],
+      "backgroundColor": {
+        "r": 216,
+        "g": 0,
+        "b": 115,
+        "a": 1
+      },
+      "show": true,
+      "isActivated": true,
+      "GUID": "a4178b43-ed5f-4e14-9de2-f46d11f1081c"
+    }
+  ],
+  "views": [],
+  "relationships": [
+    {
+      "name": "fk_users.user_id_to_subscriptions.userId",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "1b28d1d8-7b53-41ff-806b-88a028234c03",
+          "b5b4bd9d-fe9d-44a0-8e05-39abf84be4d8"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "c5e9ca6d-9c64-49af-85c9-09131d7b5483",
+          "017ce7f4-fd07-48f3-95a8-2b4d6d28a8b3"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "a362ce56-ca41-41ee-b36b-b50d91002dc7",
+      "parentCollection": "1b28d1d8-7b53-41ff-806b-88a028234c03",
+      "childCollection": "c5e9ca6d-9c64-49af-85c9-09131d7b5483",
+      "hackoladeStyles": {
+        "GUID": "f4a6f14f-2c3e-416a-af1e-b8e1640e29ff",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 1214,
+            "y": 1323.5
+          },
+          {
+            "x": 1156,
+            "y": 1323.5
+          },
+          {
+            "x": 1156,
+            "y": 1129.5
+          },
+          {
+            "x": 1098,
+            "y": 1129.5
+          }
+        ],
+        "sides": [
+          "left",
+          "right"
+        ]
+      }
+    },
+    {
+      "name": "fk_articles._id_to_likes.articleId",
+      "relationshipType": "Foreign Key",
+      "parentField": [
+        [
+          "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+          "ae7e906b-3f6e-40ba-a2e2-253c85aa4bb9"
+        ]
+      ],
+      "parentCardinality": "1",
+      "childField": [
+        [
+          "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae",
+          "61133162-b73f-472c-897e-65acc1e12f88"
+        ]
+      ],
+      "isActivated": true,
+      "childCardinality": "1",
+      "GUID": "25be94ea-4499-4f59-95d0-8d241f2a3e80",
+      "parentCollection": "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+      "childCollection": "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae",
+      "hackoladeStyles": {
+        "GUID": "13301215-3025-4c36-b22b-95c752b24061",
+        "autoPositioning": true,
+        "type": "Orthogonal",
+        "thickness": 2,
+        "color": "#79c4ff",
+        "dataType": "",
+        "shape": [
+          {
+            "x": 981,
+            "y": 1443
+          },
+          {
+            "x": 981,
+            "y": 1337
+          },
+          {
+            "x": 1261,
+            "y": 1337
+          },
+          {
+            "x": 1261,
+            "y": 1231
+          }
+        ],
+        "sides": [
+          "top",
+          "bottom"
+        ]
+      }
+    }
+  ],
+  "users": [],
+  "diagramViews": [],
+  "idToNameHashTable": {
+    "a4178b43-ed5f-4e14-9de2-f46d11f1081c": "CyberVeilleProject",
+    "1b28d1d8-7b53-41ff-806b-88a028234c03": "users",
+    "b5b4bd9d-fe9d-44a0-8e05-39abf84be4d8": "_id",
+    "6f5638de-0cc2-4633-b26f-16e744cb6002": "email",
+    "2327b5a0-4150-4b9e-8d49-a6d629fffe8c": "role",
+    "4873bd2c-0c14-48fc-883f-c1494649bdc6": "preferences",
+    "68073348-7273-4e53-aa04-19083119f1e7": "categories",
+    "3b1fd62d-e3ac-462b-ac24-e5deaaae442f": "notifications",
+    "6d05ee90-db0f-4787-821a-0039c95999d3": "email",
+    "f9645b5e-805e-4e5e-9ff6-83ce5ab1b048": "webhook",
+    "70f56dd2-f861-4b0f-83fb-033a4610c442": "apiKey",
+    "6fd2acc8-17f8-4729-abf9-0f383dd90d20": "createdAt",
+    "8652f753-2e8e-4417-ade0-76c656a7ed7a": "updatedAt",
+    "c255444f-d757-4f73-ac53-10553bf13cad": "password",
+    "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c": "articles",
+    "ae7e906b-3f6e-40ba-a2e2-253c85aa4bb9": "_id",
+    "10564cb3-fe89-4b81-a608-43c3446a89c7": "title",
+    "91c95812-76ae-454e-9121-5e3e67c3aeba": "source",
+    "f5b32ae1-303a-4a55-a6f5-15ff35b6d589": "content",
+    "bb0d7b3c-e291-4b25-af63-4d2c0a7f3b88": "category",
+    "a82cbc66-436f-4a1e-ae10-69fa4654011e": "tags",
+    "f37adf9d-3f61-4f2c-aa7a-6cf3d9548971": "publishedAt",
+    "fa343cc9-4d86-4433-826d-02dad32ac457": "createdAt",
+    "e1002c46-910a-4dae-9cac-08b71948ac2b": "moderate",
+    "c5e9ca6d-9c64-49af-85c9-09131d7b5483": "subscriptions",
+    "017ce7f4-fd07-48f3-95a8-2b4d6d28a8b3": "userId",
+    "8869432b-5da0-49b2-85cb-93a4f2f399b3": "category",
+    "37fda342-3a75-48c6-b36c-89a2d9ba4d7f": "_id",
+    "ade96e38-8b17-4275-961d-891b4b88f438": "New Field",
+    "9d14b449-c209-42e8-9afe-3f60a0976a24": "createdAt",
+    "ea7535bb-ebbf-446f-8a08-36e42281b60b": "scraping_logs",
+    "e48a4f0e-ab29-4817-a905-af51b83da5a7": "_id",
+    "ea692247-3619-422f-a497-765761c4cfee": "source",
+    "8fb4d979-b067-4c08-9b6b-b89051d22a76": "status",
+    "fe60cb85-34c1-4807-b26d-f7b17c12b2ea": "errorMessage",
+    "8779da70-be6c-4cc1-b50e-8400e201a427": "scrapedAt",
+    "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae": "likes",
+    "b9a270f7-a657-4d43-bcb8-e7c186dcf1ad": "_id",
+    "61133162-b73f-472c-897e-65acc1e12f88": "articleId",
+    "f6fb40f7-f6df-4439-a6e6-24bcc54181dd": "likes",
+    "c9cb57e9-54c3-4da5-ba18-1cab7635c413": "likes_logs",
+    "00d68b0e-1efd-4fa3-b8ac-8876933c272a": "_id",
+    "0e63f64a-c1f5-44da-a74e-be32278eec78": "articleId",
+    "f13774ff-4f48-4941-9128-20a66df350e2": "userId",
+    "5eb2e0b3-4a3b-4680-9628-0e8cf74aa3d9": "likedAt",
+    "a362ce56-ca41-41ee-b36b-b50d91002dc7": "fk_users.user_id_to_subscriptions.userId",
+    "25be94ea-4499-4f59-95d0-8d241f2a3e80": "fk_articles._id_to_likes.articleId"
+  },
+  "definitions": {
+    "type": "definitions",
+    "properties": [],
+    "GUID": "ec15ea98-66a2-457b-9e9b-b7812b8da013"
+  },
+  "polyglotDefinitions": {
+    "type": "polyglotDefinitions",
+    "properties": [],
+    "GUID": "0d777bae-a6f9-4ace-a282-5c20567e7f96"
+  },
+  "externalDefinitions": {
+    "type": "externalDefinitions",
+    "properties": [],
+    "GUID": "6f054f55-387b-41c5-bd53-9f76d7f22c31"
+  },
+  "sources": [],
+  "decorativeSymbols": [],
+  "dbVersion": "v7.x",
+  "dbVendor": "MongoDB",
+  "appTarget": "MONGODB",
+  "creationTS": "2025-02-01T16:54:03.504Z",
+  "GUID": "9d21ce11-3e5c-49a2-a3a4-73f18d7f793a",
+  "isLineageEnabled": false,
+  "hackoladeMeta": {
+    "validationErrors": {}
+  },
+  "lastModifTS": "2025-02-02T13:53:21.635Z",
+  "persistenceSchemaVersion": "7",
+  "isCreatedByPlugin": true,
+  "pluginInformation": {
+    "pluginEngineVersion": "1.0.0"
+  },
+  "applicationInformation": {
+    "version": "7.9.9"
+  },
+  "settings": {
+    "centralPane": {
+      "dbLevel": {
+        "erd": [
+          {
+            "GUID": "1b28d1d8-7b53-41ff-806b-88a028234c03",
+            "x": 822,
+            "y": 997,
+            "width": 276,
+            "height": 267,
+            "color": {}
+          },
+          {
+            "GUID": "1b0f7de2-f2f1-451a-bfba-2019c0cdd82c",
+            "x": 1122,
+            "y": 1001,
+            "width": 278,
+            "height": 231,
+            "color": {}
+          },
+          {
+            "GUID": "c5e9ca6d-9c64-49af-85c9-09131d7b5483",
+            "x": 1214,
+            "y": 1263,
+            "width": 240,
+            "height": 123,
+            "color": {}
+          },
+          {
+            "GUID": "ea7535bb-ebbf-446f-8a08-36e42281b60b",
+            "x": 853,
+            "y": 1301,
+            "width": 237,
+            "height": 123,
+            "color": {}
+          },
+          {
+            "GUID": "f7ea93f8-2f95-4e95-a8a3-09d1e71bf0ae",
+            "x": 882,
+            "y": 1444,
+            "width": 198,
+            "height": 87,
+            "color": {}
+          },
+          {
+            "GUID": "c9cb57e9-54c3-4da5-ba18-1cab7635c413",
+            "x": 1274,
+            "y": 1496,
+            "width": 174,
+            "height": 105,
+            "color": {}
+          }
+        ],
+        "erdDefinitions": {
+          "erd": [],
+          "rootPath": [],
+          "entities": [],
+          "decorativeSymbols": []
+        },
+        "buckets": [
+          {
+            "x": 782,
+            "y": 957,
+            "GUID": "a4178b43-ed5f-4e14-9de2-f46d11f1081c"
+          }
+        ],
+        "collapsedNodes": [],
+        "activeRelationship": "",
+        "activeRelationshipFields": {
+          "childField": [],
+          "parentField": []
+        },
+        "selectedCollections": [],
+        "displayColorPicker": false,
+        "graphView": {
+          "erd": [],
+          "buckets": [],
+          "decorativeSymbols": [],
+          "forceLayout": true,
+          "defaultLinkLength": 300
+        },
+        "diagramViews": [],
+        "decorativeSymbols": [],
+        "nestedCollectionsLayout": "horizontal",
+        "options": [],
+        "relationshipUpdateDisabled": false
+      },
+      "collectionLevel": {},
+      "changed": false
+    },
+    "dtDiagram": {
+      "collapsedNodes": [],
+      "shouldDistributeCollections": false
+    }
+  }
+}
