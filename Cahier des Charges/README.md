@@ -1,7 +1,5 @@
 #  Cahier des Charges
 
-  Contient la première version du chc de mon projet, v0.
-
 
 Vous y trouverez :
 
