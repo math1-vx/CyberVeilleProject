@@ -1,0 +1,63 @@
+/cyberveille-backend
+│── src/
+│   ├── core/                # Module centralisé pour les services globaux
+│   │   ├── config/          # Variables d'environnement et configs
+│   │   │   ├── database.config.ts   # Connexion MongoDB
+│   │   │   ├── jwt.config.ts        # Configuration JWT
+│   │   │   ├── swagger.config.ts    # Documentation API
+│   │   ├── logger/          # Logging global (Winston/Pino)
+│   │   ├── interceptors/    # Intercepteurs globaux (ex: TransformResponse)
+│   │   ├── filters/         # Gestion des erreurs globales (ex: ValidationPipe)
+│   │   ├── core.module.ts   # Centralisation des services
+│   │   ├── core.service.ts  # Fonctions utilitaires
+│   │   ├── core.guard.ts    # Garde de route JWT/RBAC
+│   ├── modules/
+│   │   ├── auth/            #  Gestion de l'authentification
+│   │   │   ├── auth.controller.ts
+│   │   │   ├── auth.service.ts
+│   │   │   ├── auth.module.ts
+│   │   │   ├── auth.guard.ts  # Middleware pour JWT et rôles
+│   │   │   ├── dto/           # Validation DTO (Data Transfer Object)
+│   │   ├── users/            #  Gestion des utilisateurs
+│   │   │   ├── users.controller.ts
+│   │   │   ├── users.service.ts
+│   │   │   ├── users.module.ts
+│   │   │   ├── schemas/user.schema.ts
+│   │   ├── articles/         #  Gestion des articles de veille
+│   │   │   ├── articles.controller.ts
+│   │   │   ├── articles.service.ts
+│   │   │   ├── articles.module.ts
+│   │   │   ├── schemas/article.schema.ts
+│   │   ├── subscriptions/    #  Gestion des abonnements
+│   │   │   ├── subscriptions.controller.ts
+│   │   │   ├── subscriptions.service.ts
+│   │   │   ├── subscriptions.module.ts
+│   │   │   ├── schemas/subscription.schema.ts
+│   │   ├── scraping/         #  Scraping automatisé
+│   │   │   ├── scraping.controller.ts
+│   │   │   ├── scraping.service.ts
+│   │   │   ├── scraping.module.ts
+│   │   │   ├── schemas/scraping.schema.ts
+│   │   ├── webhooks/         #  Notifications via Webhooks
+│   │   │   ├── webhooks.controller.ts
+│   │   │   ├── webhooks.service.ts
+│   │   │   ├── webhooks.module.ts
+│   │   │   ├── schemas/webhook.schema.ts
+│   │   ├── admin/            #  Panel Admin (gestion des utilisateurs, logs)
+│   │   │   ├── admin.controller.ts
+│   │   │   ├── admin.service.ts
+│   │   │   ├── admin.module.ts
+│   │   ├── events/           #  Event Bus (Redis ou Kafka)
+│   │   │   ├── events.module.ts
+│   │   │   ├── events.service.ts
+│   │   │   ├── events.gateway.ts  # WebSocket temps réel
+│   ├── config/               # Configuration de l’application
+│   ├── common/               # Fonctions et middlewares réutilisables
+│   │   ├── decorators/
+│   │   ├── guards/
+│   │   ├── pipes/
+│   ├── main.ts               # Point d’entrée de l’application NestJS
+│── test/                     # Tests unitaires et e2e
+│── package.json              # Dépendances et scripts
+│── .env                      # Variables d’environnement
+│── .gitignore                # Fichiers à ignorer
