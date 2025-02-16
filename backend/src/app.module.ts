@@ -13,6 +13,7 @@ import { ArticlesModule } from './modules/articles/articles.module';
 import { SubscriptionsModule } from './modules/subscriptions/subscriptions.module';
 import { ScrapingLogsModule } from './modules/scraping-logs/scraping-logs.module';
 import { LikesModule } from './modules/likes/likes.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -31,7 +32,8 @@ import { LikesModule } from './modules/likes/likes.module';
     ArticlesModule,
     SubscriptionsModule,
     ScrapingLogsModule,
-    LikesModule
+    LikesModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
